@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <title>HOME</title>
+  <style>nav a{
+    text-decoration:none;
+    color:coral;
+    text-align:center;
+    padding: 20px;
+    float:left;
+
+    
+}
+nav{
+     background-color:rgb(3, 130, 149);
+     overflow: hidden;
+}
+nav a:hover{
+    color:rgb(63, 239, 24);
+}
+
+
+.main_heading{
+    text-align: Center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}</style>
+  
+  
+</head>
+
+<body>
+  <header>
+    <h2 class="main_heading">Home</h2>
+  </header>
+   <%if(!currentUser) {%>  
+          <nav><a class="nav-link active" aria-current="page" href="/">Home</a>
+               <a class="nav-link" href="/login">login</a>
+               <a class="nav-link" href="/register">register</a>
+        </nav>
+        <!-- &nbsp;&nbsp;&nbsp;&nbsp; can use this-->
+        <% }else{ %>
+          <nav><a class="nav-link" href="#">User:<%=currentUser.username%></a> &nbsp;&nbsp;&nbsp;&nbsp;
+          <a class="nav-link" href="/logout">logout</a>
+          
+        </nav>
+        <h2 style=" text-align:center;font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size:100px; ;">Succesfully Logged In</h2>
+        <%} %>
+      <main></main>
+      <footer></footer>
+       
+</body>
+</html>
