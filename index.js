@@ -44,6 +44,21 @@ app.use((req, res, next) => {
 app.use('/',userRoutes)
 
 
-app.listen(1000,()=>{
+// require('./auth')
+
+// app.get('/googlelearn',(req,res)=>{
+//   res.send('<a href="/auth/google">Authenticate with Google</a>')
+// })
+
+// app.get('/auth/google',
+// passport.authenticate('google'),{scope:['email','profile']});
+
+
+
+
+
+
+
+app.listen(5000,()=>{
   console.log('listening at 1000')
 })

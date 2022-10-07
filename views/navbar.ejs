@@ -41,11 +41,13 @@ nav a:hover{
           <nav><a class="nav-link active" aria-current="page" href="/">Home</a>
                <a class="nav-link" href="/login">login</a>
                <a class="nav-link" href="/register">register</a>
+               <a class="nav-link" href="/COPS">COPS</a>
         </nav>
         <!-- &nbsp;&nbsp;&nbsp;&nbsp; can use this-->
         <% }else{ %>
           <nav><a class="nav-link" href="#">User:<%=currentUser.username%></a> &nbsp;&nbsp;&nbsp;&nbsp;
           <a class="nav-link" href="/logout">logout</a>
+          <a class="nav-link" href="/COPS" target="_blank">COPS</a>
           
         </nav>
         <h2 style=" text-align:center;font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size:100px; ;">Succesfully Logged In</h2>
