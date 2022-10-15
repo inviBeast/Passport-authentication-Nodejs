@@ -2,13 +2,17 @@ const express=require('express')
 const app=express()
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
-const User = require('./model/user');
-const userRoutes = require('./routes/users');
+const User = require('../model/user');
+const userRoutes = require('../routes/users');
 const path=require('path')
 const flash=require('connect-flash')
 const session=require('express-session')
 const mongoose=require('mongoose')
 const router = express.Router();
+
+const serverless = require("serverless-http");
+
+
 app.use(flash())
 mongoose
   .connect('mongodb+srv://invibeast:backend@cluster0.pt4rr.mongodb.net/passportlearn?retryWrites=true&w=majority')
@@ -41,7 +45,8 @@ app.use((req, res, next) => {
   
   next();
 })
-app.use('/',userRoutes)
+// app.use('/',userRoutes)
+app.use(`/.netlify/functions/index`,userRoutes);
 
 
 // require('./auth')
@@ -56,9 +61,11 @@ app.use('/',userRoutes)
 
 
 
+module.exports = app;
+module.exports.handler = serverless(app);
 
 
 
-app.listen(5000,()=>{
-  console.log('listening at 1000')
-})
+// app.listen(5000,()=>{
+//   console.log('listening at 1000')
+// })
